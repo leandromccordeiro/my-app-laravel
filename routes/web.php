@@ -8,6 +8,14 @@ use Illuminate\Support\Facades\Route;
 // Route::get('user/{id}', function ($id) {return $id;}); //Parametro obrigatório.
 // Route::get('user/{id?}', function ($id = null) {return $id;}); //Parametro opcional.
 // Route::get('user/{id?}/{name}', function ($id = null, $name = null) {return $id . ' - ' . $name;});
+Route::get('user/{id?}/{name}', function ($id = null, $name = null) 
+{
+    return $id . ' - ' . $name;
+})->where([
+    'id' => '[0-9]+',
+    'name' => '[a-z]+']); //limitar que o id e o nome devem ser numeros e letras, respectivamente. 
+
+Route::get('token/{token}', function($token){return $token;})->whereNumber('token');
 
 // --------------- FORMAS DE CHAMAR VIEW
 // Route::get('/', function () {
