@@ -8,20 +8,25 @@ use Illuminate\Support\Facades\Route;
 // Route::get('user/{id}', function ($id) {return $id;}); //Parametro obrigatório.
 // Route::get('user/{id?}', function ($id = null) {return $id;}); //Parametro opcional.
 // Route::get('user/{id?}/{name}', function ($id = null, $name = null) {return $id . ' - ' . $name;});
-Route::get('user/{id?}/{name}', function ($id = null, $name = null) 
-{
-    return $id . ' - ' . $name;
-})->where([
-    'id' => '[0-9]+',
-    'name' => '[a-z]+']); //limitar que o id e o nome devem ser numeros e letras, respectivamente. 
+// Route::get('user/{id?}/{name}', function ($id = null, $name = null) 
+// {
+//     return $id . ' - ' . $name;
+// })->where([
+//     'id' => '[0-9]+',
+//     'name' => '[A-Za-z]+']); //limitar que o id e o nome devem ser numeros e letras, respectivamente. 
+// Alternativas às expressões regulares:
+// Route::get('token/{token}', function($token){return $token;})->whereNumber('token'); //validação numérica
+// Route::get('token/{token}', function($token){return $token;})->whereAlpha('token'); //validação letras.
+// Route::get('token/{token}', function($token){return $token;})->whereAlphaNumeric('token'); //validação letras e números.
+// Route::get('token/{token}', function($token){return $token;})->whereUuid('token'); //validação Uuids
+// Route::get('token/{id}', function($id) {return $id;}); //puxando do padrão AppService (Validação global)
 
-Route::get('token/{token}', function($token){return $token;})->whereNumber('token');
+// VALIDAÇÃO GLOBAL DE PARÂMETROS EM ROTAS
 
 // --------------- FORMAS DE CHAMAR VIEW
 // Route::get('/', function () {
 //     return view('welcome');
 // })->name('home');
-
 // Route::view('welcome', 'welcome');
 
 // --------------- REDIRECT
