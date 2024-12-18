@@ -56,3 +56,15 @@ use Illuminate\Support\Facades\Route;
 // Route::get('admin', function(){
 //     return 'teste de middleware sem agrupar!';
 // })->middleware('signed');
+
+// --------------- SUB-DOMÍNIO (Não consegui fazer funcionar)
+// Route::domain('{user}.cursolaravelpro.test')->group(function(){
+//     Route::get('', function($user){
+//         return $user;
+//     });
+    
+//     Route::get('user', function(){
+//         return 'User';
+//     });
+// });
+
