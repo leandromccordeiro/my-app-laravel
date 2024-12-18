@@ -21,7 +21,11 @@ use Illuminate\Support\Facades\Route;
 // Route::get('token/{token}', function($token){return $token;})->whereUuid('token'); //validação Uuids
 // Route::get('token/{id}', function($id) {return $id;}); //puxando do padrão AppService (Validação global)
 
-// VALIDAÇÃO GLOBAL DE PARÂMETROS EM ROTAS
+// AGRUPANDO ROTAS
+// Route::prefix('user')->name('admin.')->group(function() {
+//     Route::get('', function() {return 'Hello World';})->name('users');
+//     Route::get('{id}', function() {return 'Hello World1';})->name('user');
+// });
 
 // --------------- FORMAS DE CHAMAR VIEW
 // Route::get('/', function () {
