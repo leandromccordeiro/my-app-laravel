@@ -43,3 +43,16 @@ use Illuminate\Support\Facades\Route;
 // Route::get('user', function() {return 'rota A';})->name('rotaA');
 // Route::get('admin', function() {return 'rota B';})->name('rotaB');
 
+// --------------- MIDDLEWARE
+// Route::middleware('signed')->group(function() {
+//     Route::get('', function(){
+//         return 'Hello world!';
+//     })->name('users');    
+    
+//     Route::get('{id}', function($id){
+//         return 'Hello world!' . $id;
+//     })->name('users');
+// });
+// Route::get('admin', function(){
+//     return 'teste de middleware sem agrupar!';
+// })->middleware('signed');
