@@ -78,8 +78,16 @@ use Illuminate\Support\Facades\Route;
     //     dd($request->method());
     //     return $request;
     // });
-}
+    // Route::get('user/{user}', function(User $user){
+    //     dd($user);
+    // });
 
-Route::get('user/{user}', function(User $user){
-    dd($user);
-});
+    // --------------- MIDDLEWARE GLOBAL
+    // Route::get('', function() {
+    //     return view('welcome'); //http://127.0.0.1:8001/?token=123
+    // });
+    // Route::get('users', function() {
+    //     return ['users']; //http://127.0.0.1:8001/users?token=123
+    // });
+    
+}
