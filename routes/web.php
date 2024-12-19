@@ -100,5 +100,31 @@ use App\Http\Middleware\Test2;
     // Route::get('user', function(){
     //     return ['users'];
     // })->middleware([Test2::class, Test1::class]);
+
+    // --------------- MIDDLEWARE AGRUPAMENTO
+    // Route::middleware([Test2::class, Test1::class])->group(function() {
+    //     Route::get('users', function() {
+    //         return ['users'];
+    //     });
+    //     Route::get('profile', function() {
+    //         return ['profile'];
+    //     })->withoutMiddleware([Test2::class]);
+    
+    //     Route::withoutMiddleware([Test1::class])->group(function() {
+    //         Route::get('admin', function() {
+    //             return ['admin'];
+    //         });
+    //         Route::get('cord', function() {
+    //             return ['cord'];
+    //         });
+    //     });
+    // });
 }
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+
+
 
