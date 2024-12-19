@@ -15,6 +15,12 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         // $middleware->append(Test1::class); //aplica para todas as rotas.
         $middleware->appendtogroup('policia', [Test1::class, Test2::class]); //aplica para um grupo de rotas.
+        
+        // caso queira dar um apelido para o middleware, basta usar o método alias.
+        $middleware->alias([
+            'test1' => Test1::class,
+            'test2' => Test2::class,    
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
