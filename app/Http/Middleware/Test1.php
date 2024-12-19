@@ -1,12 +1,12 @@
 <?php
-//php artisan make:middleware TestMiddleware
+//php artisan make:middleware Test1
 namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class TestMiddleware
+class Test1
 {
     /**
      * Handle an incoming request.
@@ -15,10 +15,7 @@ class TestMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!$request->token) {
-            dd($request->token);
-        }
-
+        dd('teste1');
         return $next($request);
     }
 }

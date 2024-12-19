@@ -3,6 +3,8 @@
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\Test1;
+use App\Http\Middleware\Test2;
 
 
 {   
@@ -90,4 +92,13 @@ use Illuminate\Support\Facades\Route;
     //     return ['users']; //http://127.0.0.1:8001/users?token=123
     // });
     
+    // --------------- MIDDLEWARE DIRETAMENTE NAS ROTAS
+    // Route::get('/', function () {
+    //     return view('welcome');
+    // })->middleware([Test2::class]);
+    
+    // Route::get('user', function(){
+    //     return ['users'];
+    // })->middleware([Test2::class, Test1::class]);
 }
+
