@@ -119,12 +119,20 @@ use App\Http\Middleware\Test2;
     //         });
     //     });
     // });
+    
+    // --------------- MIDDLEWARE AGRUPAMENTO
+    // Route::middleware(['policia'])->group(function() { //agrupando middleware (config em class app.php)
+    //     Route::get('users', function() {
+    //         return ['users'];
+    //     });
+    //     Route::get('profile', function() {
+    //         return ['profile'];
+    //     });
+    // });
 }
 
 Route::get('/', function () {
     return view('welcome');
 });
-
-
 
 
