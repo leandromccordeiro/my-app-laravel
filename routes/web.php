@@ -131,10 +131,35 @@ use App\Http\Controllers\UserController;
     //         return ['profile'];
     //     });
     // });
+
+    // --------------- CONTROLLERS DE AÇÃO ÚNICA (INVOKE)
+    // Route::get('checkout', CheckoutController::class);
+    
+    // --------------- USANDO RESOURCE
+    // Route::resource('users', UserController::class) //Cria todas as rotas de CRUD de uma vez só.   
+    // Route::resource('users', UserController::class)->only(['index']); //Cria APENAS a rota index. 
+    // Route::resource('users', UserController::class)->except(['destroy', 'edit']); //Cria todas EXCETO as rotas destroy e edit.  
+    
+    // Route::resources([
+    //     'users' => UserController::class,
+    //     'posts' => UserController::class
+    // ]); //Organizando rotas de resources.
+    
+    //users/{users}/comments
+    //users/{users}/comments/{comment}
+    // Route::resource('users.comments', UserController::class); //Criando rotas aninhadas.
+    
+    // Route::resource('posts', UserController::class)->parameters([
+    //     'posts' => 'admin_user'
+    // ]); //Alterando o nome do parâmetro da rota.
+    
+    // Route::get('users/{user:name}', [UserController::class, 'show']); //o parametro pega o id por padrao, mas pode ser alterado para email, por exemplo.
+    // Route::resource('users', UserController::class)->scoped([
+    //     'user' => 'email'
+    // ]); //Apontando para outro campo da tabela (id para email, por exemplo).
 }
 
-Route::get('/users', [UserController::class, 'index']);
-Route::get('/users/{user}', [UserController::class, 'show']);
+// Route::get('/users', [UserController::class, 'index']);
+// Route::get('/users/{user}', [UserController::class, 'show']);
 
-Route::get('checkout', CheckoutController::class);
 
