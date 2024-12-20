@@ -197,6 +197,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('profile', function () {
-    return view('user.profile');
-});
+Route::get('users', [UserController::class, 'index']);
