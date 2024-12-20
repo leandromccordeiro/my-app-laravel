@@ -7,9 +7,22 @@
 </head>
 <body>
     <h1>Usuários</h1>
-    @foreach ($users as $item)
-        <p>{{ $item->name }}</p>
-    @endforeach
+
+    {{-- @unless (count($users))
+        <p>Nenhum usuário cadastrado</p>
+    @endunless
+        
+    @foreach ($users as $user)
+        <p>{{ $user->name }}</p>
+    @endforeach --}}
+
+    <br><br>
+
+    @forelse($users as $user)
+        <p>{{ $user->name }}</p>
+    @empty
+        <p>Nenhum usuário cadastrado</p>
+    @endforelse
 
 </body>
 </html>
