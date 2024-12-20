@@ -134,7 +134,7 @@ use App\Http\Controllers\UserController;
 
     // --------------- CONTROLLERS DE AÇÃO ÚNICA (INVOKE)
     // Route::get('checkout', CheckoutController::class);
-    
+
     // --------------- USANDO RESOURCE
     // Route::resource('users', UserController::class) //Cria todas as rotas de CRUD de uma vez só.   
     // Route::resource('users', UserController::class)->only(['index']); //Cria APENAS a rota index. 
@@ -157,9 +157,46 @@ use App\Http\Controllers\UserController;
     // Route::resource('users', UserController::class)->scoped([
     //     'user' => 'email'
     // ]); //Apontando para outro campo da tabela (id para email, por exemplo).
+    
+    // --------------- REQUEST
+    // Route::get('user/{users}', function (Request $request) {
+    //     // dd($request); //mostra todas as informações da requisição.
+    //     // dd($request->path()); //caminho da url
+    //     // dd($request->url()); //url sem query string
+    //     // dd($request->fullUrl()); //url completa
+    //     // dd($request->fullUrlWitgQuery(['curso' => 'laravel'])); //adiciona query string
+    //     // dd($request->fullUrlIs('http://127.0.0.1:8000')); verifica se a url é igual a passada por parametro.
+    //     // dd($request->is('user/*')); //verifica se a url é igual a passada por parametro (true).
+    //     // dd($request->is('user')); //verifica se a url é igual a passada por parametro (false).
+    //     // dd($request->routeIs('user')); //verifica se o nome rota é igual a passada por parametro.
+    //     // dd($request->method()); //mostra o método da requisição (GET, POST, PUT...).
+    //     // dd($request->isMethod('get')); //verifica se o método é igual ao passado por parametro.
+    // })->name('user');
+    
+    // --------------- INPUT
+    // Route::get('user/{users}', function (Request $request) {
+    //     // dd($request); //mostra todas as informações da requisição.
+    //     // dd($request->input('token')); //pega o valor do input token.
+    //     // dd($request->input('curso', 'Laravel')); //pega o valor do input curso, se não existir, retorna Laravel.
+    //     // dd($request->input('product.curso'));  //pega o valor do input product.name.
+    //     // http://127.0.0.1:8000/user/12?token=abc&product[curso]=Laravel
+    //     // dd($request->input()); //pega todos os inputs.
+        
+    //     // dd($request->query('product')); //pega o valor do query product.
+    //     // dd($request->query('curso', 'Laravel')); //pega o valor do query curso, se não existir, retorna Laravel.
+    //     // dd($request->query()); //pega todos os querys.
+    
+    //     // dd($request->token); //pega o valor do input token.
+    //     // dd($request->only('token', 'product')); //pega os valores dos inputs token e product.
+    //     // dd($request->except('token'));
+    // })->name('user');
+
 }
 
-// Route::get('/users', [UserController::class, 'index']);
-// Route::get('/users/{user}', [UserController::class, 'show']);
+Route::get('/', function () {
+    return view('welcome');
+});
 
-
+Route::get('profile', function () {
+    return view('user.profile');
+});
