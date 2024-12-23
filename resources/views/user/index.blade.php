@@ -1,4 +1,4 @@
-{
+{{-- {
     {{-- <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -29,7 +29,7 @@
             <p>{{ $user->name }}</p>
         @endforeach --}}
 
-        <br><br>
+        {{-- <br><br> --}}
 
         {{-- @forelse($users as $user)
             <p>{{ $user->name }}</p>
@@ -44,17 +44,25 @@
 
     </body>
     </html> --}}
-}
-@push('css')
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-@endpush
+    {{-- @push('css')
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    @endpush 
+    {{-- @section('content')
+        @each('user.user', $users, 'user')
+    @endsection --}}
+    
+    {{-- @section('yield')
+        Conteúdo Yield
+    @endsection
+} --}}
 
 @extends('layouts.default')
 
+@section('title', 'Lista de usuários')
+
 @section('content')
-    @each('user.user', $users, 'user')
+
+    <x-user></x-user>
+
 @endsection
 
-@section('yield')
-    Conteúdo Yield
-@endsection
