@@ -11,9 +11,14 @@
     {{-- @includeWhen(true, 'user.heading') {{-- Incluir quando for true --}}
     {{-- @includeUnless(false, 'user.heading') {{-- Incluir quando for false --}}
     {{-- @includeFirst(['user.custom_heading', 'user.heading']) {{-- Incluir o primeiro que encontrar --}}
-    {{-- @include('heading', ['title' => 'Usuários']) --}}
-    {{-- @includeWhen(true, 'heading', ['title' => 'UsuáriosWhen']) {{-- Incluir quando for true
+    @include('heading', ['title' => 'Usuários'])
+    {{-- @includeWhen(true, 'heading', ['title' => 'UsuáriosWhen']) {{-- Incluir quando for true --}}
     
+    {{-- @foreach ($users as $user)
+        @include('user.user', ['user' => $user]) {{-- ideia de componentização  
+    @endforeach --}}
+
+    @each('user.user', $users, 'user') {{-- ideia de componentização, sem necessidade de foreach --}}
     
     {{-- @unless (count($users))
         <p>Nenhum usuário cadastrado</p>
