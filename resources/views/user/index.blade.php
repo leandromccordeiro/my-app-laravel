@@ -6,8 +6,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Usuários</h1>
-
+    {{-- @include('user.heading') --}}
+    {{-- @includeIf('user.heading') {{-- Incluir se existir --}}
+    {{-- @includeWhen(true, 'user.heading') {{-- Incluir quando for true --}}
+    {{-- @includeUnless(false, 'user.heading') {{-- Incluir quando for false --}}
+    {{-- @includeFirst(['user.custom_heading', 'user.heading']) {{-- Incluir o primeiro que encontrar --}}
+    {{-- @include('heading', ['title' => 'Usuários']) --}}
+    {{-- @includeWhen(true, 'heading', ['title' => 'UsuáriosWhen']) {{-- Incluir quando for true
+    
+    
     {{-- @unless (count($users))
         <p>Nenhum usuário cadastrado</p>
     @endunless
@@ -18,11 +25,18 @@
 
     <br><br>
 
-    @forelse($users as $user)
+    {{-- @forelse($users as $user)
         <p>{{ $user->name }}</p>
     @empty
         <p>Nenhum usuário cadastrado</p>
-    @endforelse
+    @endforelse --}} 
+
+    {{-- <?php $j = 1; ?>
+    @while($j < 10)
+    {{ $j++ }}
+    @endwhile --}}
+
+
 
 </body>
 </html>
