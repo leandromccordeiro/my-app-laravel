@@ -64,7 +64,7 @@
 
     {{-- <x-user></x-user> --}}
     <x-user.user-list
-    type="lista"
+    type="card"
     ></x-user.user-list>
 
 @endsection
