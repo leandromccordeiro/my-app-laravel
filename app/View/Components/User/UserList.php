@@ -1,19 +1,23 @@
 <?php
 
-namespace App\View\Components\Forms;
+namespace App\View\Components\User;
 
+use App\Models\User as ModelsUser;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Input extends Component
+class UserList extends Component
 {
+    public $users;
+    public $type;
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct($type)
     {
-        //
+        $this->users = ModelsUser::all();
+        $this->type = $type;
     }
 
     /**
@@ -21,6 +25,6 @@ class Input extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.forms.input');
+        return view('components.user.user-list');
     }
 }

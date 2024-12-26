@@ -62,7 +62,9 @@
 
 @section('content')
 
-    <x-user></x-user>
+    {{-- <x-user></x-user> --}}
+    <x-user.user-list
+    type="lista"
+    ></x-user.user-list>
 
 @endsection
-
