@@ -3,7 +3,9 @@
 @section('content')
 <div>
     <h1>Lista de usuários</h1>
-    
+    <br>
+    {{-- {{ $curso }} --}}
+    <br>
     @if($type === 'lista')
         <ul class="list-group">
             @foreach($users as $user)

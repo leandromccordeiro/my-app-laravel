@@ -12,6 +12,9 @@ class UserList extends Component
     public $users;
     public $type;
     public $cardClass;
+    public $curso = 'Laravel';
+
+    public $except = ['curso']; //Forma de ocultar propriedades do template
     /**
      * Create a new component instance.
      */
