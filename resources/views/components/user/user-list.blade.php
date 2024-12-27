@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-<div>
+<div {{ $attributes }}> {{-- tudo que não passa pela classe, vai para o elemento raíz do template.--}}
     <h1>Lista de usuários</h1>
     <br>
     {{-- {{ $curso }} --}}

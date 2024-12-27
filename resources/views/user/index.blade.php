@@ -66,6 +66,8 @@
         :users="$users"
         card-class='warning'
         type="card"
+        class='pt-5'
+        data-user-id='10'
     ></x-user.user-list>
 
 @endsection
