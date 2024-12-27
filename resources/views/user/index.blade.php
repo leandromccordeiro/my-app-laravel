@@ -62,6 +62,12 @@
 
 @section('content')
 
+    <x-forms.button
+        name="Salvar"
+        variant="danger"
+        class="mb-5"
+    >
+    </x-forms.button>
     <x-user.user-list
         :users="$users"
         card-class='warning'
