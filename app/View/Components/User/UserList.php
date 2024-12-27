@@ -14,9 +14,9 @@ class UserList extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct($type)
+    public function __construct($users = null, $type = 'lista')
     {
-        $this->users = ModelsUser::all();
+        $this->users = $users;
         $this->type = $type;
     }
 

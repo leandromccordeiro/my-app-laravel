@@ -62,9 +62,9 @@
 
 @section('content')
 
-    {{-- <x-user></x-user> --}}
     <x-user.user-list
-    type="card"
+        :users="$users"
+        type="card"
     ></x-user.user-list>
 
 @endsection
