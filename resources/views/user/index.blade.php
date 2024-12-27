@@ -64,6 +64,7 @@
 
     <x-user.user-list
         :users="$users"
+        card-class='warning'
         type="card"
     ></x-user.user-list>
 

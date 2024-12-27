@@ -11,13 +11,20 @@ class UserList extends Component
 {
     public $users;
     public $type;
+    public $cardClass;
     /**
      * Create a new component instance.
      */
-    public function __construct($users = null, $type = 'lista')
+    public function __construct($users = null, $type = 'lista', $cardClass = 'success')
     {
         $this->users = $users;
         $this->type = $type;
+        $this->cardClass = $cardClass;
+    }
+
+    public function isSelected($userId)
+    {
+        return $userId === 3;
     }
 
     /**

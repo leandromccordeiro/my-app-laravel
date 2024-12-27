@@ -14,7 +14,7 @@
         </ul>
     @elseif($type === 'card')
         @foreach($users as $user)
-            <div class="card shadow mb-2">
+            <div class="card shadow mb-2 bg-{{ $isSelected($user->id) ? 'info' : $cardClass }}">
                 <div class="card-body">
                     {{ $user->name }}
                 </div>
