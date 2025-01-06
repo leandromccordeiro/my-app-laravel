@@ -204,8 +204,15 @@ Route::get('/', function () {
 });
 
 Route::get('bd', function () {
-    $users = DB::table('users')->get();
-    // dd($users);
+    // $users = DB::table('users')->get(); //retorna a collection de todos os usuários.
+    
+    // $users = DB::table('users')->find(3); //retorna o usuário com id 3.
+
+    // $users = DB::table('users')->first();  //retorna o primeiro usuário.
+
+    $users = DB::table('users')->where('email', "dock10@example.org")->first(); //retorna o usuário com email correspondente
+
+
     return view('database.users', compact('users'));
 });
 Route::get('users', [UserController::class, 'index']);

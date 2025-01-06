@@ -4,10 +4,18 @@
 
 @section('content')
     <div>
-        <ul>
-            @foreach ($users as $user)
-                <li>{{ $user->name }}</li>
-            @endforeach
-        </ul>
+        @if(is_countable($users) && count($users) > 1)
+            <ul>
+                @foreach ($users as $user)
+                    <li class="badge text-bg-secondary">{{ $user->name }}</li><br>
+                @endforeach
+            </ul>
+        @else
+            <ul>
+                <li class="badge text-bg-secondary">
+                    {{ is_object($users) ? $users->name : 'Nenhum usuário encontrado' }}
+                </li>
+            </ul>
+        @endif
     </div>
 @endsection
