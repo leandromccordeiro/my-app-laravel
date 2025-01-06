@@ -204,13 +204,18 @@ Route::get('/', function () {
 });
 
 Route::get('bd', function () {
-    // $users = DB::table('users')->get(); //retorna a collection de todos os usuários.
+    // $users = DB::table('users')->where(column:'email', operator:'frederique78@example.org')->exists(); //verifica se existe o usuário com email correspondente.
+    // dd($users);
     
+    // $users = DB::table('users')->get(); //retorna a collection de todos os usuários.
     // $users = DB::table('users')->find(3); //retorna o usuário com id 3.
-
     // $users = DB::table('users')->first();  //retorna o primeiro usuário.
-
-    $users = DB::table('users')->where('email', "dock10@example.org")->first(); //retorna o usuário com email correspondente
+    // $users = DB::table('users')->where('email', "dock10@example.org")->first(); //retorna o usuário com email correspondente
+    // $users = DB::table('users')->select('name')->get(); //retorna apenas o campo/coluna específica.
+    // $users = DB::table('users')->orderBy('name')->get(); //retorna a collection ordenada pelo campo name.
+    // $users = DB::table('users')->inRandomOrder()->get(); //retorna a collection ordenada aleatoriamente.
+    // $users = DB::table('users')->latest('email_verified_at')->get(); //retorna a collection ordenada pela data de criação.
+    $users = DB::table('users')->oldest('email_verified_at')->get(); //retorna a collection ordenada pela data de criação.
 
 
     return view('database.users', compact('users'));
