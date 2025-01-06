@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\Test1;
 use App\Http\Middleware\Test2;
 use App\Http\Controllers\UserController;
-
+use Illuminate\Support\Facades\DB;
 
 {   
     // --------------- PASSANDO PARAMETRO NA ROTA
@@ -197,11 +197,15 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
 
-    throw new InvalidOrderException();
-
+    // throw new InvalidOrderException();
     // throw new ProductNotFoundException();
 
     return view('welcome');
 });
 
+Route::get('bd', function () {
+    $users = DB::table('users')->get();
+    // dd($users);
+    return view('database.users', compact('users'));
+});
 Route::get('users', [UserController::class, 'index']);
