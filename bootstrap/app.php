@@ -1,7 +1,9 @@
 <?php
 
+use App\Exceptions\InvalidOrderException;
 use App\Http\Middleware\Test1;
 use App\Http\Middleware\Test2;
+use App\Exceptions\ProductNotFoundException;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -24,5 +26,11 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        //
+        $exceptions->report(function(InvalidOrderException $exception) {
+            dd("Invalid Order Exception");
+        });
+        // dd('x');
+        $exceptions->report(function(ProductNotFoundException $exception) {
+            dd("Product not found");
+        });
     })->create();

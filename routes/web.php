@@ -1,5 +1,7 @@
 <?php
 
+use App\Exceptions\InvalidOrderException;
+use App\Exceptions\ProductNotFoundException;
 use App\Http\Controllers\CheckoutController;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -194,6 +196,11 @@ use App\Http\Controllers\UserController;
 }
 
 Route::get('/', function () {
+
+    // throw new InvalidOrderException();
+
+    throw new ProductNotFoundException();
+
     return view('welcome');
 });
 
