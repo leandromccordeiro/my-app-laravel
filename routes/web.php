@@ -197,9 +197,9 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
 
-    // throw new InvalidOrderException();
+    throw new InvalidOrderException();
 
-    throw new ProductNotFoundException();
+    // throw new ProductNotFoundException();
 
     return view('welcome');
 });

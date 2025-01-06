@@ -27,13 +27,14 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->withExceptions(function (Exceptions $exceptions) {
         // $exceptions->dontReport(InvalidOrderException::class); //não reporta a exceção e não loga
+        
         // $exceptions->report(function(InvalidOrderException $exception) {
         //     dd("Invalid Order Exception");
         // }); //loga a exceção        
         
-        $exceptions->render(function(InvalidOrderException $exception) {
-            return response()->view(view:'errors.invalid-order', status:500);
-        }); //renderiza a view de erro.
+        // $exceptions->render(function(InvalidOrderException $exception) {
+        //     return response()->view(view:'errors.invalid-order', status:500);
+        // }); //renderiza a view de erro.
         // dd('x');
 
 
@@ -41,8 +42,8 @@ return Application::configure(basePath: dirname(__DIR__))
         //     dd("Product not found");
         // }); //loga a exceção        
         
-        $exceptions->render(function(ProductNotFoundException $exception) {
-            return response()->json(['message' => 'Product not found'], status:404);
-        }); //loga a exceção
+        // $exceptions->render(function(ProductNotFoundException $exception) {
+        //     return response()->json(['message' => 'Product not found'], status:404);
+        // }); //loga a exceção
 
     })->create();
