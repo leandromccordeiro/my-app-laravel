@@ -193,6 +193,106 @@ use Illuminate\Support\Facades\DB;
     //     // dd($request->except('token'));
     // })->name('user');
 
+    //TESTANDO QUERY BUILD (CONSULTAS AO BANCO DE DADOS)
+    // Route::get('bd', function () {
+        // $users = DB::table('users')->where(column:'email', operator:'frederique78@example.org')->exists(); //verifica se existe o usuário com email correspondente.
+        // dd($users);
+        // $users = DB::table('users')->where('name', 'LIKE', 'A%')->get(); //retorna a collection com os registros que possuem o campo name iniciando com a letra A.
+        // dd($users);
+        
+        // $users = DB::table('users')->get(); //retorna a collection de todos os usuários.
+        // $users = User::get(); //retorna a collection de todos os usuários, usando Model.
+        // $users = DB::table('users')->find(3); //retorna o usuário com id 3.
+        // $users = DB::table('users')->first();  //retorna o primeiro usuário.
+        // $users = DB::table('users')->where('email', "dock10@example.org")->first(); //retorna o usuário com email correspondente
+        // $users = DB::table('users')->select('name')->get(); //retorna apenas o campo/coluna específica.
+        // $users = DB::table('users')->orderBy('name')->get(); //retorna a collection ordenada pelo campo name.
+        // $users = DB::table('users')->inRandomOrder()->get(); //retorna a collection ordenada aleatoriamente.
+        // $users = DB::table('users')->latest('email_verified_at')->get(); //retorna a collection ordenada pela data de criação.
+        // $users = DB::table('users')->oldest('email_verified_at')->get(); //retorna a collection ordenada pela data de criação.
+        // $users = DB::table('users')->take(2)->get(); //retorna a collection com a quantidade de registros passada por parametro.
+        // $users = DB::table('users')->limit(2)->get(); //retorna a collection com a quantidade de registros passada por parametro.
+        // $users = DB::table('users')->oldest()->limit(6)->get(); //Pega os 6 primeiros em ordem do mais antigo para o mais novo.
+        // $users = DB::table('users')->skip(4)->limit(6)->get(); //Pula os 4 primeiros registros e retorna a collection com a quantidade de registros passada por parametro.
+        // $users = DB::table('users')->where([
+        //     ['email', 'LIKE', '%49%'],
+        //     ['name', 'LIKE', '%ferry%']
+        // ])->get(); //retorna a collection com os registros que satisfazem as condições.
+        // dd($users);
+        // $users = DB::table('users')
+        //     ->where('name', 'Preston Homenick')
+        //     // ->where(function($query) {
+        //     //     $query->where('email', 'like', '%example.com');
+        //     // }) //retorna a collection com os registros que satisfazem duas condições where acima.Dentro do where é AND e fora é OR.
+        //     ->orWhere(function($query) {
+        //         $query->where('name', 'Minerva Hirthe');
+        //         $query->where('email', 'like', '%example.com');
+        //         })
+        //     ->get(); //retorna a collection com os registros que satisfazem as condições. Dentro do orwhere é AND e fora é OR.
+        // dd($users);
+    
+        // $users = DB::table('users')
+        //     ->where('id', '>=', '4')
+        //     ->whereNOt('name', 'Minerva Hirthe') 
+        //     ->whereLike('name', '%Walter%', caseSensitive: true)
+        //     // ->whereNotLike('name', '%Walter%', caseSensitive: true)
+        //     ->get();
+        //     // ->toSql();
+        // dd($users);
+    
+        // $users = DB::table('users')
+        //     ->whereBetween('id', [4, 6]) //funciona com datas. 
+        //     ->get(); //Pesquisa entre os valores passados por parametro.
+    
+        // $users = DB::table('users')
+        //     ->whereIn('id', [4, 6, 10]) 
+        //     ->get(); //Pesquisa dados que estão dentro do array passado por parametro.
+    
+        // $users = DB::table('users')
+        //     ->whereNull('email_verified_at')
+        //     ->get(); //Pesquisa dados que estão nulos.
+    
+        // $users = DB::table('users')
+        //     ->whereNotNull('email_verified_at')
+        //     ->get(); //Pesquisa dados que não estão nulos.
+    
+        // $users = DB::table('users')
+        //     ->whereDate('created_at', '>', '2024-12-31')
+        //     ->get(); //Pesquisa dados que estão nulos.
+        // dd($users);
+    
+        // $users = DB::table('users')
+        //     ->whereDay('email_verified_at', '26')
+        //     ->get(); //Pesquisa por dia.
+        // dd($users);
+    
+        // $users = DB::table('users')
+        //     ->whereMonth('email_verified_at', '01')
+        //     ->get(); //Pesquisa por mês.
+        // dd($users);
+    
+        // $users = DB::table('users')
+        //     ->whereYear('email_verified_at', '2024')
+        //     ->get(); //Pesquisa por ano.
+        // dd($users);
+    
+        // $users = DB::table('users')
+        //     ->whereColumn('updated_at', '>', 'created_at')
+        //     ->get(); //compara colunas
+        // dd($users);
+    
+        // $users = DB::table('users')
+        //     ->whereAll(['name', 'email'], 'like', ['%Walter%', '%example.org']) // AND
+        //     ->get();
+        // dd($users);
+    
+        // $users = DB::table('users')
+        //     ->whereAny(['name', 'email'], 'like', ['%Walter%', '%example.org']) // OR
+        //     ->get();
+        // dd($users);
+    
+    //     return view('database.users', compact('users'));
+    // });
 }
 
 Route::get('/', function () {
@@ -203,21 +303,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('bd', function () {
-    // $users = DB::table('users')->where(column:'email', operator:'frederique78@example.org')->exists(); //verifica se existe o usuário com email correspondente.
-    // dd($users);
-    
-    // $users = DB::table('users')->get(); //retorna a collection de todos os usuários.
-    // $users = DB::table('users')->find(3); //retorna o usuário com id 3.
-    // $users = DB::table('users')->first();  //retorna o primeiro usuário.
-    // $users = DB::table('users')->where('email', "dock10@example.org")->first(); //retorna o usuário com email correspondente
-    // $users = DB::table('users')->select('name')->get(); //retorna apenas o campo/coluna específica.
-    // $users = DB::table('users')->orderBy('name')->get(); //retorna a collection ordenada pelo campo name.
-    // $users = DB::table('users')->inRandomOrder()->get(); //retorna a collection ordenada aleatoriamente.
-    // $users = DB::table('users')->latest('email_verified_at')->get(); //retorna a collection ordenada pela data de criação.
-    $users = DB::table('users')->oldest('email_verified_at')->get(); //retorna a collection ordenada pela data de criação.
 
 
-    return view('database.users', compact('users'));
-});
 Route::get('users', [UserController::class, 'index']);
